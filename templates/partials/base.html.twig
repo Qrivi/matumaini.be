@@ -1,0 +1,74 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+{% set local_months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'] %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getLanguage ?: 'nl' }}">
+
+<head>
+    <meta charset="utf-8">
+    {% include 'partials/metadata.html.twig' %}
+    <meta name="made" content="Kristof Dewilde <me@krivi.be>">
+    <meta name="revised" content="Kristof Dewilde, 15/3/2017">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>{% block title %}{{ site.title }}{% endblock title %}</title>
+
+    {% block styles %}
+        <link rel="stylesheet" media="screen" href="{{ url('theme://assets/css/screen.min.css') }}">
+    {% endblock styles %}
+    {{ assets.css() }}
+
+    <link rel="canonical" href="{{ page.url(true, true) }}">
+    <link rel="alternate" type="application/rss+xml" href="{{ base_url == '' ? '/' : base_url }}/activiteiten.rss">
+    <link rel="alternate" type="application/atom+xml" href="{{ base_url == '' ? '/' : base_url }}/activiteiten.atom">
+    <link rel="alternate" type="application/activitystream+json" href="{{ base_url == '' ? '/' : base_url }}/activiteiten.json">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('theme://assets/img/icns/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('theme://assets/img/icns/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('theme://assets/img/icns/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url('theme://assets/img/icns/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url('theme://assets/img/icns/safari-pinned-tab.svg') }}" color="#121212">
+    <link rel="shortcut icon" href="{{ url('theme://assets/img/icns/favicon.ico') }}">
+    <meta name="apple-mobile-web-app-title" content="Matumaini Katanga">
+    <meta name="application-name" content="Matumaini Katanga">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="{{ url('theme://assets/img/icns/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body id="{{ page.template }}">
+    <header>
+        <div>
+            <h1><span>{{ page.header.smalltitle|striptags }}</span> {{ page.header.title|striptags }}</h1>
+            <em>{{ page.header.baseline|striptags }}</em>
+        </div>
+        {% block topnav %}
+        <nav>
+            <ul class="sticky">
+                <li>
+                    <a class="logo" href="{{ base_url == '' ? '/' : base_url }}">{{ site.title|striptags }}</a>
+                    {% block breadcrumbs %}{% endblock breadcrumbs %}
+                </li>
+                <li>
+                    <a href="{{ base_url == '' ? '/' : base_url }}#schenken">Contacteren of schenken</a>
+                </li>
+            </ul>
+        </nav>
+        {% endblock topnav %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    {% include 'partials/footer.html.twig' %}
+
+    {% block scripts %}
+        {% do assets.addJs('jquery') %}
+        {% do assets.addJs('theme://assets/js/libs.js') %}
+    {% endblock scripts %}
+    {{ assets.js() }}
+</body>
+
+</html>

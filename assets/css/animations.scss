@@ -1,0 +1,26 @@
+@keyframes bounce {
+    0% {
+        margin-bottom: 10px;
+    }
+
+    50% {
+        margin-bottom: 0;
+    }
+
+    100% {
+        margin-bottom: 10px;
+    }
+}
+@keyframes arrow {
+    0% {
+        right: 20px;
+    }
+
+    50% {
+        right: 15px;
+    }
+
+    100% {
+        right: 20px;
+    }
+}

@@ -1,0 +1,31 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% set collection = page.collection() %}
+
+    {% block title %}
+        {{ header.title }} | {{ site.title }}
+    {% endblock title %}
+
+	{% block content %}
+    <section id="content">
+        <form id="searchform">
+            <h2>{{ page.title }}</h2>
+            <input type="search" placeholder="Zoeken...">
+        </form>
+
+        {% for child in collection %}
+            {% include 'partials/item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+        {% endfor %}
+    </section>
+
+    <section id="navigation">
+        navigatie
+    </section>
+	{% endblock content %}
+
+    {% block scripts %}
+        {{ parent() }}
+        {% do assets.addJs('theme://assets/js/archive.js') %}
+    {% endblock scripts %}
+
+{% endembed %}

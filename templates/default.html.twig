@@ -1,0 +1,9 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block title %}
+    {% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}
+{% endblock title %}
+
+{% block content %}
+    {{ page.content }}
+{% endblock content %}
