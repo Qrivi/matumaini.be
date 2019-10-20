@@ -1,0 +1,17 @@
+{% include 'modular/section.html.twig' %}
+<section id="activiteiten">
+    <div>
+        <h3>Recente activiteiten</h3>
+        <input type="search" placeholder="Filteren" maxlength="100">
+    </div>
+    <ul class="postlist">
+        {% for post in page.find('/archief').children.order('date', 'desc') %}
+        {% if page.title != post.title  %}
+        {% include 'partials/summary.html.twig' with { 'page': post, 'hidden': loop.index > 6 } %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <p>
+        <a class="button">Meer activiteiten laden</a> <a class="archive" href="{{ url('/archief') }}">Archief</a></span>
+    </p>
+</section>

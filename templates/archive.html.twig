@@ -1,31 +1,35 @@
-{% embed 'partials/base.html.twig' %}
+{% extends 'partials/base.html.twig' %}
 
-	{% set collection = page.collection() %}
+{% block content %}
+{% include 'partials/hero.html.twig' %}
+<section id="activiteiten">
+    <div>
+        <h2>{{ page.title }}</h2>
+        <input type="search" placeholder="Filteren" maxlength="100">
+    </div>
+    {% for post in page.collection().order('date', 'desc') %}
+    {% if year != post.date | date('Y') %}
+    {% set year = post.date | date('Y') %}
+    {% if not loop.first %}</ul>{% endif %}
+    <h3 data-year="{{ year }}">{{ year }}</h3>
+    <ul data-year="{{ year }}" class="postlist">
+    {% endif %}
+    {% include 'partials/summary.html.twig' with { 'page': post } %}
+    {% endfor %}
+    </ul>
+</section>
+{% endblock %}
 
-    {% block title %}
-        {{ header.title }} | {{ site.title }}
-    {% endblock title %}
-
-	{% block content %}
-    <section id="content">
-        <form id="searchform">
-            <h2>{{ page.title }}</h2>
-            <input type="search" placeholder="Zoeken...">
-        </form>
-
-        {% for child in collection %}
-            {% include 'partials/item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
-        {% endfor %}
-    </section>
-
-    <section id="navigation">
-        navigatie
-    </section>
-	{% endblock content %}
-
-    {% block scripts %}
-        {{ parent() }}
-        {% do assets.addJs('theme://assets/js/archive.js') %}
-    {% endblock scripts %}
-
-{% endembed %}
+{% block scripts %}
+<script>
+    var posts = [
+        {% for post in page.collection().order('date', 'desc') %}
+        {
+            title: {{ post.title }},
+            banner: {{ post.header.banner }},
+            date: {{ post.date | date('c') }},
+            preview: {{ page.summary | striptags }}
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}];
+</script>
+{% endblock %}

@@ -1,27 +1,13 @@
-name:                 Matukata
-version:              0.1.0
-description:          Custom theme for NPO Matumaini Katanga
-icon:                 rebel
+name: Matumaini Theme
+version: 2.0.0
+description: "Matumaini is a custom Grav theme for the Belgian NPO Matumaini Katanga"
+keywords: grav, theme, matumaini, katanga, vzw, npo, meldert, congo
+icon: user-circle
 author:
-  name:               Kristof Dewilde
-  email:              hello@kristofdewil.de
-homepage:             https://github.com/Qrivi/grav-matukata
-demo:                 http://www.matumainikatanga.be
-keywords:             grav, theme, matumaini, katanga, vzw, meldert, congo
-bugs:                 https://github.com/Qrivi/grav-matukata/issues
-readme:               https://github.com/Qrivi/grav-matukata/blob/master/README.md
-license:              MIT
-
-form:
-  validation:         loose
-  fields:
-    dropdown.enabled:
-        type:         toggle
-        label:        Dropdown in Menu
-        highlight:    1
-        default:      1
-        options:
-          1:          PLUGIN_ADMIN.ENABLED
-          0:          PLUGIN_ADMIN.DISABLED
-        validate:
-          type:       bool
+  name: Kristof Dewilde
+  email: matumaini@krivi.be
+  url: https://kristofdewil.de
+homepage: https://github.com/Qrivi/matumaini-grav
+bugs: https://github.com/Qrivi/matumaini-grav/issues
+demo: http://www.matumaini.be
+license: MIT

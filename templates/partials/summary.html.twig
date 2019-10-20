@@ -1,0 +1,16 @@
+{% set month = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'] %}
+<li{% if hidden %} class="hidden"{% endif %}>
+    <h4><a href="{{ page.url }}">{{ page.title }}</a></h4>
+    <time datetime="{{ page.date | date('c') }}">{{ page.date | date('j') }} {{ month[ page.date | date('n') - 1 ] }} {{ page.date | date('Y') }}</time>
+    {% if page.media.images and page.header.banner %}
+    {% set banner_source = page.media.images[page.header.banner].cropZoom(600,600).url %}
+    {% elseif page.media.images %}
+    {% set banner_source = (page.media.images | first).cropZoom(600,600).url %}
+    {% else %}
+    {% set banner_source = url('theme://assets/img/background.jpg') %}
+    {% endif %}
+    <img src="{{ banner_source }}" alt="{{ page.title }}" loading="lazy">
+    <p>
+        {{ page.summary | striptags }}
+    </p>
+</li>

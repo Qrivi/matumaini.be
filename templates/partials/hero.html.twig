@@ -1,0 +1,10 @@
+<section id="hero">
+    <h2><span>vzw</span> {{ site.title }}</h2>
+    <p>Hoop voor de toekomst!</p>
+    <figure>
+        <img alt="" src="{{ url('theme://assets/img/background.jpg') }}">
+        {% for image in page.find('/images').media.images %}
+        <img alt="" src="{{ image.url }}" loading="lazy">
+        {% endfor %}
+    </figure>
+</section>

@@ -79,7 +79,8 @@ time,
 mark,
 audio,
 video {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
@@ -135,3 +136,4 @@ body {
   -ms-overflow-style: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+/*# sourceMappingURL=reset.css.map */

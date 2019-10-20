@@ -3,7 +3,7 @@ namespace Grav\Theme;
 
 use Grav\Common\Theme;
 
-class Matukata extends Theme
+class Matumaini extends Theme
 {
     // Hello World
 }

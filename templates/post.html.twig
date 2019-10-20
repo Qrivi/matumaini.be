@@ -1,0 +1,46 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set month = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'] %}
+
+{% block content %}
+<section id="post">
+    <header>
+        <h2>{{ page.title }}</h2>
+        <time datetime="{{ page.date | date('c') }}">{{ page.date | date('j') }}  {{ month[ page.date | date('n') - 1 ] }} {{ page.date | date('Y') }}</time>
+        {% if page.media.images and page.header.banner %}
+        {{ page.media.images[page.header.banner] }}
+        {% elseif page.media.images %}
+        {{ page.media.images | first }}
+        {% else %}
+         <img src="{{ url('theme://assets/img/background.jpg') }}" alt="">
+        {% endif %}
+    </header>
+
+    {{ page.content }}
+
+    <footer>
+        <ul>
+            {% if not page.isLast %}
+            <li>
+                <a href="{{ page.prevSibling.url }}" title="Oudere activiteit">Recentere activiteit</a>
+            </li>
+            {% endif %}
+            {% if not page.isFirst %}
+            <li>
+                <a href="{{ page.nextSibling.url }}" title="Recentere activiteit">Oudere activiteit</a>
+            </li>
+            {% endif %}
+        </ul>
+    </footer>
+</section>
+<section id="relevant">
+    <h3>Gerelateerde activiteiten</h3>
+    <ul class="postlist">
+        {% for post in page.find('/archief').children.random(4) %}
+        {% if page.title != post.title  %}
+        {% include 'partials/summary.html.twig' with { 'page': post } %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

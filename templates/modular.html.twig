@@ -2,5 +2,7 @@
 
 {% block content %}
 {% include 'partials/hero.html.twig' %}
-{% include 'modular/section.html.twig' %}
+{% for module in page.collection() %}
+{{ module.content }}
+{% endfor %}
 {% endblock %}
