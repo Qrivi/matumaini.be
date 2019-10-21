@@ -322,6 +322,12 @@ a.button:visited {
   text-decoration: none;
 }
 
+ul.postlist {
+  -webkit-transition: height 0.5s ease-out;
+  -o-transition: height 0.5s ease-out;
+  transition: height 0.5s ease-out;
+}
+
 ul.postlist li {
   position: relative;
   display: -webkit-box;
@@ -332,6 +338,17 @@ ul.postlist li {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #fff;
+  -webkit-transition: max-height 0.5s 0.25s ease-in-out, opacity 0.25s 0s ease-out;
+  -o-transition: max-height 0.5s 0.25s ease-in-out, opacity 0.25s 0s ease-out;
+  transition: max-height 0.5s 0.25s ease-in-out, opacity 0.25s 0s ease-out;
+  max-height: 800px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+ul.postlist li.hiding {
+  max-height: 0;
+  opacity: 0;
 }
 
 ul.postlist li.hidden {
@@ -398,7 +415,7 @@ ul.postlist li h4 a:hover {
   color: #c81400;
 }
 
-ul.postlist li p {
+ul.postlist p {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
@@ -409,7 +426,7 @@ ul.postlist li p {
   transition: padding-bottom 0.25s ease-out;
 }
 
-ul.postlist li:hover p {
+ul.postlist:hover p {
   padding-bottom: 40px;
 }
 
@@ -561,6 +578,22 @@ main > section#hero img {
   height: 700px;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: opacity 2s 5s ease-in-out, -webkit-transform 4s 3s;
+  transition: opacity 2s 5s ease-in-out, -webkit-transform 4s 3s;
+  -o-transition: opacity 2s 5s ease-in-out, transform 4s 3s;
+  transition: opacity 2s 5s ease-in-out, transform 4s 3s;
+  transition: opacity 2s 5s ease-in-out, transform 4s 3s, -webkit-transform 4s 3s;
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+main > section#hero img:last-of-type {
+  opacity: 0;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 main > section#matumaini {
@@ -639,6 +672,13 @@ main > section#aalmoezeniers ul li {
   width: 320px;
   min-width: 300px;
   margin: 20px;
+  overflow: hidden;
+}
+
+main > section#aalmoezeniers ul li:hover img {
+  -webkit-transform: scale(1.1) translateY(-10px);
+      -ms-transform: scale(1.1) translateY(-10px);
+          transform: scale(1.1) translateY(-10px);
 }
 
 main > section#aalmoezeniers ul li img {
@@ -651,6 +691,11 @@ main > section#aalmoezeniers ul li img {
   -o-object-fit: cover;
      object-fit: cover;
   border-bottom: solid 4px #c81400;
+  -webkit-transition: -webkit-transform 4s ease-out;
+  transition: -webkit-transform 4s ease-out;
+  -o-transition: transform 4s ease-out;
+  transition: transform 4s ease-out;
+  transition: transform 4s ease-out, -webkit-transform 4s ease-out;
 }
 
 main > section#aalmoezeniers ul li h3 {

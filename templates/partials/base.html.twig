@@ -5,10 +5,11 @@
 
         <title>{% block title %}{{ site.title }}{% endblock title %}</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.ico">
-        <link rel="icon" type="image/png" href="assets/img/logo.png">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url('theme://assets/img/logo.ico') }}">
+        <link rel="icon" type="image/png" href="{{ url('theme://assets/img/logo.png') }}">
 
         <link rel="stylesheet" media="screen" href="{{ url('theme://assets/css/screen.css') }}">
+        <script defer src="{{ url('theme://assets/js/scripts.js') }}"></script>
     </head>
     <body id="{{ page.template }}">
         <noscript>

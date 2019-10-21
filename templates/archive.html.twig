@@ -5,7 +5,7 @@
 <section id="activiteiten">
     <div>
         <h2>{{ page.title }}</h2>
-        <input type="search" placeholder="Filteren" maxlength="100">
+        <input id="filter" type="search" placeholder="Filteren" maxlength="100">
     </div>
     {% for post in page.collection().order('date', 'desc') %}
     {% if year != post.date | date('Y') %}

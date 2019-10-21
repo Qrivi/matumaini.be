@@ -3,8 +3,12 @@
     <p>Hoop voor de toekomst!</p>
     <figure>
         <img alt="" src="{{ url('theme://assets/img/background.jpg') }}">
-        {% for image in page.find('/images').media.images %}
-        <img alt="" src="{{ image.url }}" loading="lazy">
-        {% endfor %}
     </figure>
+    <script>
+    const hero = document.querySelector('#hero figure');
+    window.setInterval(() => hero.insertBefore(hero.lastChild, hero.firstChild), 10000);
+    {% for image in page.find('/images').media.images %}
+    hero.insertBefore(document.createRange().createContextualFragment('<img alt="" src="{{ image.url }}" loading="lazy">'), hero.firstChild);
+    {% endfor %}
+    </script>
 </section>

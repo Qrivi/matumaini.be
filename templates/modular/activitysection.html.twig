@@ -2,7 +2,7 @@
 <section id="activiteiten">
     <div>
         <h3>Recente activiteiten</h3>
-        <input type="search" placeholder="Filteren" maxlength="100">
+        <input id="filter" type="search" placeholder="Filteren" maxlength="100">
     </div>
     <ul class="postlist">
         {% for post in page.find('/archief').children.order('date', 'desc') %}
@@ -12,6 +12,6 @@
         {% endfor %}
     </ul>
     <p>
-        <a class="button">Meer activiteiten laden</a> <a class="archive" href="{{ url('/archief') }}">Archief</a></span>
+        <a class="button more-posts">Meer activiteiten laden</a> <a class="archive" href="{{ url('/archief') }}">Archief</a></span>
     </p>
 </section>
