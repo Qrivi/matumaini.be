@@ -19,17 +19,3 @@
     </ul>
 </section>
 {% endblock %}
-
-{% block scripts %}
-<script>
-    var posts = [
-        {% for post in page.collection().order('date', 'desc') %}
-        {
-            title: {{ post.title }},
-            banner: {{ post.header.banner }},
-            date: {{ post.date | date('c') }},
-            preview: {{ page.summary | striptags }}
-        }{% if not loop.last %},{% endif %}
-        {% endfor %}];
-</script>
-{% endblock %}

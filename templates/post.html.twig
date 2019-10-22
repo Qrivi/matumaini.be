@@ -2,6 +2,12 @@
 
 {% set month = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'] %}
 
+{% block scripts %}
+<link rel="stylesheet" media="screen" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<script defer src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<script defer src="{{ url('theme://assets/js/posts.min.js') }}"></script>
+{% endblock scripts %}
+
 {% block content %}
 <section id="post">
     <header>

@@ -55,12 +55,46 @@ body:after {
 }
 
 body > header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
   padding: 30px;
+  -webkit-transition: background-color 0.5s ease-out, padding 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition: background-color 0.5s ease-out, padding 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out, transform 0.5s ease-out, padding 0.5s ease-out;
+  transition: background-color 0.5s ease-out, transform 0.5s ease-out, padding 0.5s ease-out;
+  transition: background-color 0.5s ease-out, transform 0.5s ease-out, padding 0.5s ease-out, -webkit-transform 0.5s ease-out;
+}
+
+body > header.hidden {
+  -webkit-transform: translateY(-100px);
+      -ms-transform: translateY(-100px);
+          transform: translateY(-100px);
+}
+
+body > header.invert {
+  position: fixed;
+  padding: 0;
+  background: #f6f6f6;
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+  -webkit-animation: header 0.5s ease-out forwards;
+          animation: header 0.5s ease-out forwards;
+}
+
+body > header.invert ul li:first-of-type a {
+  background-image: url(../img/logo.png);
+}
+
+body > header.invert ul li:last-of-type a {
+  background: #c81400;
+  color: #f6f6f6;
+}
+
+body > header.invert ul li a {
+  color: #222;
 }
 
 @media screen and (max-width: 680px) {
@@ -106,6 +140,9 @@ body > header ul li:first-of-type a {
   background-size: 30px;
   color: transparent;
   white-space: nowrap;
+  -webkit-transition: color 0.5s ease-out;
+  -o-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
 }
 
 body > header ul li:last-of-type {
@@ -444,6 +481,10 @@ blockquote {
   max-width: 1500px;
   margin: 0 auto;
   padding: 25px 10px;
+  font: 1.5em/1.4em "Homemade Apple", serif, Arial, sans-serif;
+}
+
+blockquote.fancy {
   text-align: center;
   font: 2em/1.4em "Homemade Apple", serif, Arial, sans-serif;
 }
@@ -932,6 +973,11 @@ main > section#post {
   padding: 0 0 100px;
 }
 
+main > section#post img:not(.static) {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
 main > section#post > header {
   position: relative;
   margin: 0 0 50px;
@@ -987,6 +1033,14 @@ main > section#post > header img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+main > section#post ul {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px 20px 60px;
+  color: rgba(34, 34, 34, 0.75);
+  list-style-type: circle;
 }
 
 main > section#post figure {

@@ -9,9 +9,12 @@
         <link rel="icon" type="image/png" href="{{ url('theme://assets/img/logo.png') }}">
 
         <link rel="stylesheet" media="screen" href="{{ url('theme://assets/css/screen.css') }}">
-        <script defer src="{{ url('theme://assets/js/scripts.js') }}"></script>
+        <script defer src="{{ url('theme://assets/js/scripts.min.js') }}"></script>
+
+        {% block scripts %}
+        {% endblock scripts %}
     </head>
-    <body id="{{ page.template }}">
+    <body id="page-{{ page.template }}">
         <noscript>
             JavaScript is uitgeschakeld: sommige functionaliteit van deze website zal niet correct werken.
         </noscript>
@@ -35,8 +38,6 @@
             {% endblock content %}
             {% include 'partials/donate.html.twig' %}
         </main>
-        {% block scripts %}
-        {% endblock scripts %}
         {% include 'partials/footer.html.twig' %}
     </body>
 </html>

@@ -66,12 +66,40 @@ body {
 }
 
 body > header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
   padding: 30px; // only if pinned to top
+  transition: background-color 0.5s ease-out, transform 0.5s ease-out, padding 0.5s ease-out;
+
+  &.hidden {
+    transform: translateY(-100px);
+  }
+
+  &.invert {
+    position: fixed;
+    padding: 0;
+    background: $colorLight;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    animation: header 0.5s ease-out forwards;
+
+    ul li {
+      &:first-of-type a {
+        background-image: url(../img/logo.png);
+      }
+
+      &:last-of-type a {
+        background: $colorAccent;
+        color: $colorLight;
+      }
+
+      a {
+        color: $colorDark;
+      }
+    }
+  }
 
   @media screen and (max-width: 680px) {
     padding: 0;
@@ -105,6 +133,7 @@ body > header {
           background-size: 30px;
           color: transparent;
           white-space: nowrap;
+          transition: color 0.5s ease-out;
         }
       }
 
@@ -400,8 +429,12 @@ blockquote {
   max-width: 1500px;
   margin: 0 auto;
   padding: 25px 10px;
-  text-align: center;
-  font: 2em/1.4em $fontScript, Arial, sans-serif;
+  font: 1.5em/1.4em $fontScript, Arial, sans-serif;
+
+  &.fancy {
+    text-align: center;
+    font: 2em/1.4em $fontScript, Arial, sans-serif;
+  }
 
   &:before,
   &:after {
@@ -813,6 +846,10 @@ main > section#schenken {
 main > section#post {
   padding: 0 0 100px;
 
+  img:not(.static) {
+    cursor: zoom-in;
+  }
+
   > header {
     position: relative;
     margin: 0 0 50px;
@@ -863,6 +900,14 @@ main > section#post {
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  ul {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px 20px 60px;
+    color: $colorText;
+    list-style-type: circle;
   }
 
   figure {

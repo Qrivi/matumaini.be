@@ -1,10 +1,29 @@
+// Sticky header if necessary
+const header = document.querySelector('body > header');
+let scrollPos = 0;
+window.addEventListener('scroll', () => {
+    if (window.scrollY < 400) {
+        header.classList.remove('invert');
+    } else {
+        header.classList.add('invert');
+
+        if (document.body.getBoundingClientRect().top < scrollPos)
+            header.classList.add('hidden');
+        else
+            header.classList.remove('hidden');
+    }
+    scrollPos = (document.body.getBoundingClientRect()).top;
+});
+
 // Smooth scrolling for internal links.
 Array.from(document.querySelectorAll('a[href*="#"]:not([href="#"])'))
     .forEach(link => link.addEventListener('click', function (event) {
         event.preventDefault();
+        header.classList.add('hidden');
         document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     }, false));
 
+// Activity filtering
 const allPosts = document.querySelectorAll("ul.postlist li");
 const morePosts = document.querySelector("#activiteiten a.more-posts");
 const filterInput = document.querySelector("#filter");
@@ -27,7 +46,7 @@ if (filterInput)
     });
 
 if (window.location.search.includes('filter=')) {
-    filterInput.value = window.location.search.match(/filter=(.*)/)[1];
+    filterInput.value = window.location.search.match(/filter=(.*)/)[1].replace(/\+/g, ' ');
     filterPosts();
 } else if (window.location.search.includes('activiteiten=')) {
     const amount = parseInt(window.location.search.match(/activiteiten=(.*)/)[1]);
@@ -55,7 +74,8 @@ function resetPosts(amount) {
 function filterPosts() {
     if (morePosts && !filterInput.value.length)
         return resetPosts(6);
-    morePosts.style.visibility = 'hidden';
+    if (morePosts)
+        morePosts.style.visibility = 'hidden';
 
     Array.from(allPosts)
         .forEach(post => {
