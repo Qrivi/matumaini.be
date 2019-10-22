@@ -2,7 +2,7 @@
 const header = document.querySelector('body > header');
 let scrollPos = 0;
 window.addEventListener('scroll', () => {
-    if (window.scrollY < 400) {
+    if (window.scrollY < 300) {
         header.classList.remove('invert');
     } else {
         header.classList.add('invert');
