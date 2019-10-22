@@ -1,6 +1,5 @@
 {% extends 'partials/base.html.twig' %}
 
-{% set month = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'] %}
 {% block title %}{{ page.title }} | {{ site.title }}{% endblock title %}
 
 {% block head %}
@@ -13,7 +12,7 @@
 <section id="post">
     <header>
         <h2>{{ page.title }}</h2>
-        <time datetime="{{ page.date | date('c') }}">{{ page.date | date('j') }}  {{ month[ page.date | date('n') - 1 ] }} {{ page.date | date('Y') }}</time>
+        {% include 'partials/date.html.twig' %}
         {% if page.media.images and page.header.banner %}
         {{ page.media.images[page.header.banner] }}
         {% elseif page.media.images %}

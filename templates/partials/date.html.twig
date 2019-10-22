@@ -1,0 +1,3 @@
+{% set month = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'] %}
+
+<time datetime="{{ page.date | date('c') }}">{{ page.date | date('j') }} {{ month[ page.date | date('n') - 1 ] }} {{ page.date | date('Y') }}</time>
