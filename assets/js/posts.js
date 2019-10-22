@@ -1,7 +1,7 @@
 // Make galleries of paragraphs with only images.
 Array.from(document.querySelectorAll('#post > p'))
     .forEach(paragraph => {
-        if (!paragraph.textContent) {
+        if (!paragraph.textContent.trim()) {
             for (var i = 0; i < paragraph.children.length; i++)
                 if (paragraph.children[i].tagName !== "IMG")
                     return;
