@@ -6,9 +6,9 @@
         <title>{% block title %}{{ site.title }}{% endblock title %}</title>
 
         <link rel="canonical" href="{{ page.url(true, true) }}">
-        <link rel="alternate" type="application/rss+xml" href="{{ base_url == '' ? '/' : base_url }}/activiteiten.rss">
-        <link rel="alternate" type="application/atom+xml" href="{{ base_url == '' ? '/' : base_url }}/activiteiten.atom">
-        <link rel="alternate" type="application/activitystream+json" href="{{ base_url == '' ? '/' : base_url }}/activiteiten.json">
+        <link rel="alternate" type="application/rss+xml" href="{{ url('activiteiten.rss', true) }}">
+        <link rel="alternate" type="application/atom+xml" href="{{ url('activiteiten.atom', true) }}">
+        <link rel="alternate" type="application/activitystream+json" href="{{ url('activiteiten.json', true) }}">
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ url('theme://assets/img/logo_.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ url('theme://assets/img/logo_32.png') }}">
