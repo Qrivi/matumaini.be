@@ -1035,12 +1035,16 @@ main > section#post > header img {
      object-fit: cover;
 }
 
-main > section#post ul {
+main > section#post ul, main > section#post ol {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px 20px 60px;
   color: rgba(34, 34, 34, 0.75);
   list-style-type: circle;
+}
+
+main > section#post ol {
+  list-style-type: decimal;
 }
 
 main > section#post figure {
