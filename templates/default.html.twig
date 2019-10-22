@@ -1,5 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 
+{% block title %}{{ page.title }} | {{ site.title }}{% endblock title %}
+
 {% block content %}
 {% include 'partials/hero.html.twig' %}
 {% include 'modular/section.html.twig' %}
