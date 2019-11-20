@@ -133,7 +133,6 @@ body > header {
           background-size: 30px;
           color: transparent;
           white-space: nowrap;
-          transition: color 0.5s ease-out;
         }
       }
 
@@ -484,6 +483,7 @@ main > section:not(#hero) {
       position: absolute;
       top: -15px;
       left: 0;
+      padding: 0 0 50px;
       z-index: 0;
       opacity: 0.05;
       font-size: 2.4em;
@@ -902,7 +902,8 @@ main > section#post {
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px 20px 60px;
