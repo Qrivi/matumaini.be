@@ -1,9 +1,20 @@
 {% extends 'partials/base.html.twig' %}
 
-<!-- TODO -->
+{% block title %}Oeps! | {{ site.title }}{% endblock title %}
+
 {% block content %}
-    <div class="lead text-center">
-        <h1>Error!</h1>
-        {{ page.content }}
-    </div>
+<section id="error" style="background-image: url({{ url('theme://assets/img/background.jpg') }})">
+    <h2>404</h2>
+    <p>Deze pagina lijkt niet te bestaan!</p>
+</section>
+<section id="relevant">
+    <h3>Voorgestelde activiteiten</h3>
+    <ul class="postlist">
+        {% for post in page.find('/archief').children.random(4) %}
+        {% if page.title != post.title  %}
+        {% include 'partials/summary.html.twig' with { 'page': post } %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}
