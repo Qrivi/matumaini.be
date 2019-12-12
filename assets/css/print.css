@@ -1,0 +1,325 @@
+@charset "UTF-8";
+@import url("reset.css");
+a {
+  text-decoration: none;
+}
+
+body {
+  font: normal 11pt/16pt Arial, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 100%;
+}
+
+body iframe,
+body input,
+body form,
+body > header nav ul,
+body section#hero,
+body section#relevant,
+body section#schenken,
+body#page-modular section#activiteiten,
+body section#matumaini a,
+body section#activiteiten img,
+body section#aalmoezeniers img,
+body section#post header img,
+body section#post footer {
+  display: none;
+}
+
+body#page-modular main section {
+  margin-bottom: 20px;
+}
+
+body#page-modular main h2 {
+  font-weight: bold;
+  font-size: 16pt;
+  line-height: 20pt;
+  padding-bottom: 15px;
+}
+
+body > main {
+  width: 90%;
+  margin: 40px auto;
+}
+
+body > header {
+  line-height: 11pt;
+}
+
+body > header h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+body > header nav:before {
+  display: block;
+  font-size: 10pt;
+  margin-bottom: 22px;
+  content: "matumaini.be";
+}
+
+body > footer {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 9pt;
+  line-height: 10pt;
+}
+
+body > footer h3 {
+  padding: 14px 0 10px;
+}
+
+body > footer h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+body > footer h2 span {
+  text-transform: lowercase;
+  font-weight: normal;
+  font-size: 5pt;
+}
+
+body > footer p {
+  margin-bottom: 10px;
+}
+
+body section#about h2 {
+  font-weight: bold;
+  font-size: 16pt;
+  line-height: 20pt;
+}
+
+body section#about > div {
+  display: none;
+}
+
+body section#about #team {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+body section#about #team h3 {
+  display: none;
+}
+
+body section#about #team ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 60px 0 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body section#about #team ul figure {
+  width: 200px;
+  height: 200px;
+}
+
+body section#about #team ul figure img {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  -o-transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+
+body section#about #team ul figure:hover img {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+body section#about #team ul figure figcaption {
+  padding: 15px 0 0;
+  font-weight: 700;
+}
+
+body section#about #team ul figure figcaption em {
+  font-style: normal;
+  display: block;
+  font-weight: 400;
+}
+
+body section#aalmoezeniers h3 {
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+body section#aalmoezeniers p {
+  padding-bottom: 20px;
+}
+
+body section#activiteiten h2 {
+  font-weight: bold;
+  font-size: 16pt;
+  line-height: 20pt;
+}
+
+body section#activiteiten h3 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15pt;
+  padding-bottom: 25px;
+}
+
+body section#activiteiten h4 {
+  font-weight: bold;
+  font-size: 13pt;
+}
+
+body section#activiteiten time {
+  padding-top: 5px;
+  font-size: 10pt;
+}
+
+body section#activiteiten li p {
+  padding: 10px 0 25px;
+}
+
+body section#eyecatcher > header,
+body section#post > header {
+  margin-bottom: 20px;
+}
+
+body section#eyecatcher > header h2,
+body section#post > header h2 {
+  font-weight: bold;
+  font-size: 16pt;
+  line-height: 20pt;
+}
+
+body section#eyecatcher > header time,
+body section#post > header time {
+  padding-top: 5px;
+  font-size: 10pt;
+}
+
+body section#eyecatcher p,
+body section#post p {
+  padding: 12px 0;
+}
+
+body section#eyecatcher blockquote,
+body section#post blockquote {
+  font-family: serif;
+  line-height: 12px;
+}
+
+body section#eyecatcher blockquote footer,
+body section#post blockquote footer {
+  font-family: Arial, sans-serif;
+  text-align: right;
+}
+
+body section#eyecatcher blockquote footer:before,
+body section#post blockquote footer:before {
+  content: "— ";
+}
+
+body section#eyecatcher ul,
+body section#eyecatcher ol,
+body section#post ul,
+body section#post ol {
+  margin: 0 auto;
+  padding: 0 20px 20px 40px;
+  list-style-type: circle;
+}
+
+body section#eyecatcher ol,
+body section#post ol {
+  list-style-type: decimal;
+}
+
+body section#eyecatcher figure,
+body section#post figure {
+  display: block;
+  max-width: 900px;
+  margin: 15px auto;
+  padding: 20px;
+}
+
+body section#eyecatcher figure figcaption,
+body section#post figure figcaption {
+  display: block;
+  padding: 10px 0 0;
+}
+
+body section#eyecatcher figure img,
+body section#post figure img {
+  width: 100%;
+}
+
+body section#eyecatcher p.gallery,
+body section#post p.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 15px auto;
+  padding: 10px;
+}
+
+body section#eyecatcher p.gallery img,
+body section#post p.gallery img {
+  margin: 4px;
+  width: calc(25% - 8px);
+  height: 110px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media only screen and (max-width: 850px) {
+  body section#eyecatcher p.gallery img,
+  body section#post p.gallery img {
+    width: calc(33% - 8px);
+    height: 120px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body section#eyecatcher p.gallery img,
+  body section#post p.gallery img {
+    width: calc(50% - 8px);
+    height: 100px;
+  }
+}
+
+body section#eyecatcher p:not(.gallery) > img,
+body section#post p:not(.gallery) > img {
+  float: right;
+  max-width: 300px;
+  margin: 10px 0 10px 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  body section#eyecatcher p:not(.gallery) > img,
+  body section#post p:not(.gallery) > img {
+    float: none;
+    max-width: none;
+    width: 100%;
+    margin: 20px 0;
+    display: block;
+  }
+}
+/*# sourceMappingURL=print.css.map */
