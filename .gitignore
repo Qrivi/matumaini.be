@@ -1,6 +1,7 @@
 /grav/cache
 /grav/logs
-
+node_modules
+.cache
 
 ####################
 
