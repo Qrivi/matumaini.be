@@ -9,12 +9,15 @@
         <h2>{{ page.title }}</h2>
         <input id="filter" type="search" placeholder="Filteren" maxlength="100">
     </div>
+    <p class="hidden no-posts">
+        Er zijn geen activiteiten die aan uw filtercriteria voldoen.
+    </p>
     {% for post in page.collection().order('date', 'desc') %}
     {% if year != post.date | date('Y') %}
     {% set year = post.date | date('Y') %}
     {% if not loop.first %}</ul>{% endif %}
-    <h3 data-year="{{ year }}">{{ year }}</h3>
-    <ul data-year="{{ year }}" class="postlist">
+    <h3 class="year-posts">{{ year }}</h3>
+    <ul class="postlist">
     {% endif %}
     {% include 'partials/summary.html.twig' with { 'page': post } %}
     {% endfor %}

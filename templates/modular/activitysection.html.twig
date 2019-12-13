@@ -4,6 +4,9 @@
         <h3>Recente activiteiten</h3>
         <input id="filter" type="search" placeholder="Filteren" maxlength="100">
     </div>
+    <p class="hidden no-posts">
+        Er zijn geen activiteiten die aan uw filtercriteria voldoen.
+    </p>
     <ul class="postlist">
         {% for post in page.find('/archief').children.order('date', 'desc') %}
         {% if page.title != post.title  %}

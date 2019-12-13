@@ -786,6 +786,21 @@ main > section#activiteiten {
     }
   }
 
+  .no-posts {
+    padding-bottom: 0;
+  }
+
+  .no-posts,
+  .year-posts {
+    transition: opacity 0.25s ease-out, max-height 0.25s ease-in-out, padding 0.25s ease-in-out;
+
+    &.hidden {
+      opacity: 0;
+      max-height: 0;
+      padding: 0;
+    }
+  }
+
   ul {
     margin: 45px 0;
     display: grid;

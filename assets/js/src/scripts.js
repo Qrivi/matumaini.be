@@ -6,11 +6,7 @@ window.addEventListener('scroll', () => {
         header.classList.remove('invert');
     } else {
         header.classList.add('invert');
-
-        if (document.body.getBoundingClientRect().top < scrollPos)
-            header.classList.add('hidden');
-        else
-            header.classList.remove('hidden');
+        header.classList.toggle('hidden', document.body.getBoundingClientRect().top < scrollPos);
     }
     scrollPos = (document.body.getBoundingClientRect()).top;
 });
@@ -25,10 +21,13 @@ Array.from(document.querySelectorAll('a[href*="#"]:not([href="#"])'))
 
 // Activity filtering
 const allPosts = document.querySelectorAll("ul.postlist li");
+const yearPosts = document.querySelectorAll("#activiteiten h3.year-posts");
+const noPosts = document.querySelector("#activiteiten p.no-posts");
 const morePosts = document.querySelector("#activiteiten a.more-posts");
 const filterInput = document.querySelector("#filter");
 const filterDelay = 100;
 let filterDebounce = null;
+let noPostsDebounce = null;
 let hasFiltered = false;
 let loadedPosts = 6;
 
@@ -57,6 +56,7 @@ if (window.location.search.includes('filter=')) {
 function resetPosts(amount) {
     loadedPosts = amount;
     morePosts.style.visibility = 'visible';
+
     Array.from(allPosts)
         .forEach((post, index) => {
             if (index < amount)
@@ -66,9 +66,12 @@ function resetPosts(amount) {
         });
     if ('URLSearchParams' in window) {
         const searchParams = new URLSearchParams(window.location.search);
+        searchParams.delete('filter');
         searchParams.set('activiteiten', loadedPosts);
         history.pushState(null, '', window.location.pathname + '?' + searchParams.toString());
     }
+
+    checkPosts();
 }
 
 function filterPosts() {
@@ -86,9 +89,12 @@ function filterPosts() {
         });
     if ('URLSearchParams' in window && hasFiltered) {
         const searchParams = new URLSearchParams(window.location.search);
+        searchParams.delete('activiteiten');
         searchParams.set('filter', filterInput.value);
         history.pushState(null, '', window.location.pathname + '?' + searchParams.toString());
     }
+
+    checkPosts();
 }
 
 function hidePost(post) {
@@ -108,4 +114,22 @@ function showPost(post) {
             post.classList.remove('hiding');
         }, 10);
     }
+}
+
+function checkPosts() {
+    if (noPostsDebounce)
+        window.clearTimeout(noPostsDebounce);
+    noPostsDebounce = window.setTimeout(() => {
+        noPosts.classList.toggle('hidden', !Array.from(allPosts)
+            .every(post => post.classList.contains('hidden'))
+        );
+
+        if (yearPosts) {
+            Array.from(yearPosts).forEach(title => {
+                title.classList.toggle('hidden', Array.from(title.nextElementSibling.querySelectorAll('li'))
+                    .every(post => post.classList.contains('hidden'))
+                );
+            })
+        };
+    }, 1000);
 }

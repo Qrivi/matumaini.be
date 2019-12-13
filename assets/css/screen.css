@@ -890,6 +890,24 @@ main > section#activiteiten div input:focus, main > section#activiteiten div inp
   border-color: #c81400;
 }
 
+main > section#activiteiten .no-posts {
+  padding-bottom: 0;
+}
+
+main > section#activiteiten .no-posts,
+main > section#activiteiten .year-posts {
+  -webkit-transition: opacity 0.25s ease-out, max-height 0.25s ease-in-out, padding 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-out, max-height 0.25s ease-in-out, padding 0.25s ease-in-out;
+  transition: opacity 0.25s ease-out, max-height 0.25s ease-in-out, padding 0.25s ease-in-out;
+}
+
+main > section#activiteiten .no-posts.hidden,
+main > section#activiteiten .year-posts.hidden {
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+}
+
 main > section#activiteiten ul {
   margin: 45px 0;
   display: -ms-grid;
