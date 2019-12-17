@@ -26,4 +26,3 @@ jobs:
             _The zipped source code is a valid Grav package installable via URL in Grav's Direct Install tool._
           draft: false
           prerelease: false
-          
