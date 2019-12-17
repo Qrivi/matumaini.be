@@ -1,0 +1,29 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: Auto-Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            [**Changelog**](https://github.com/Qrivi/matumaini.be/blob/master/CHANGELOG.md)
+            
+            _The zipped source code is a valid Grav package that can easily be installed via URL in Grav's Direct Install tool._
+          draft: false
+          prerelease: false
+          
