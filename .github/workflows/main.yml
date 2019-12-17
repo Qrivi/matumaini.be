@@ -23,7 +23,7 @@ jobs:
           body: |
             [**Changelog**](https://github.com/Qrivi/matumaini.be/blob/master/CHANGELOG.md)
             
-            _The zipped source code is a valid Grav package that can easily be installed via URL in Grav's Direct Install tool._
+            _The zipped source code is a valid Grav package installable via URL in Grav's Direct Install tool._
           draft: false
           prerelease: false
           
