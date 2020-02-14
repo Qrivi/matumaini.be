@@ -474,6 +474,18 @@ em {
   font-style: italic;
 }
 
+sup {
+  vertical-align: super;
+  font-size: .66em;
+  line-height: .66em;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: .66em;
+  line-height: .66em;
+}
+
 blockquote {
   max-width: 1500px;
   margin: 0 auto;

@@ -4,6 +4,27 @@ a {
   text-decoration: none;
 }
 
+.bold,
+strong {
+  font-weight: 700;
+}
+
+.italic,
+em {
+  font-style: italic;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: .66em;
+  line-height: .66em;
+}
+
 body {
   font: normal 11pt/16pt Arial, sans-serif;
   -webkit-box-sizing: border-box;
