@@ -4,38 +4,39 @@
 
 @import "reset";
 
-$colorAccent: rgb(200, 20, 0);
-$colorLight: #f6f6f6;
-$colorLightAlt: #eee;
-$colorDark: #222;
-$colorText: rgba(34, 34, 34, 0.75);
-$fontDefault: "Open Sans", Arial, sans-serif;
-$fontScript: "Homemade Apple", serif;
-$fontBlock: "Oswald", sans-serif;
-
 // ******
 // SETUP
 // ******
 
-noscript {
-  display: block;
-  position: fixed;
-  z-index: 99;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: $colorLight;
-  background: $colorAccent;
-  padding: 10px 20px;
-  font: 700 0.9em $fontDefault;
-  text-transform: uppercase;
-  text-align: center;
-}
+$fontDefault: "Open Sans", Arial, sans-serif;
+$fontScript: "Homemade Apple", serif;
+$fontBlock: "Oswald", sans-serif;
+
+$lightModeAccent: rgb(200, 20, 0);
+$darkModeAccent: rgb(240, 75, 57);
+
+$lightModeLight: #f6f6f6;
+$darkModeLight: #111;
+
+$lightModeAlt: #eee;
+$darkModeAlt: #222;
+
+$lightModeDark: #222;
+$darkModeDark: #ddd;
+
+$lightModeText: rgba(34, 34, 34, 0.75);
+$darkModeText: rgba(255,255,255,.8);
 
 body {
-  font: 400 1em/1.8em "Open Sans", Arial, sans-serif;
-  background: $colorDark;
-  color: $colorDark;
+  --accent: #{$lightModeAccent};
+  --light: #{$lightModeLight};
+  --alt: #{$lightModeAlt};
+  --dark: #{$lightModeDark};
+  --text: #{$lightModeText};
+
+  font: 400 1em/1.8em $fontDefault;
+  background: var(--dark);
+  color: var(--dark);
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -50,7 +51,7 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background: $colorAccent;
+    background: var(--accent);
   }
 }
 
@@ -63,8 +64,23 @@ body {
 }
 
 ::selection {
-  background: $colorAccent;
+  background: var(--accent);
   color: #ffffff;
+}
+
+noscript {
+  display: block;
+  position: fixed;
+  z-index: 99;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: var(--light);
+  background: var(--accent);
+  padding: 10px 20px;
+  font: 700 0.9em $fontDefault;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 body > header {
@@ -83,7 +99,7 @@ body > header {
   &.invert {
     position: fixed;
     padding: 0;
-    background: $colorLight;
+    background: var(--light);
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
     animation: header 0.5s ease-out forwards;
 
@@ -93,12 +109,12 @@ body > header {
       }
 
       &:last-of-type a {
-        background: $colorAccent;
-        color: $colorLight;
+        background: var(--accent);
+        color: var(--light);
       }
 
       a {
-        color: $colorDark;
+        color: var(--dark);
       }
     }
   }
@@ -145,18 +161,18 @@ body > header {
 
         a {
           position: relative;
-          background: $colorLight;
+          background: var(--light);
           border-radius: 50px;
           text-align: center;
           min-width: 146px;
           padding: 8px 0;
-          color: $colorDark;
+          color: var(--dark);
           transition: color 0.5s ease-out, background-color 0.5s ease-out;
 
           &:hover {
             transform: none;
             opacity: 1;
-            color: $colorLight;
+            color: var(--light);
             background: #d00;
 
             &:after {
@@ -201,7 +217,7 @@ body > footer {
   display: flex;
   flex-wrap: wrap;
   padding: 50px;
-  color: $colorLight;
+  color: var(--light);
 
   @media screen and (max-width: 640px) {
     padding: 20px 20px 90px;
@@ -217,7 +233,7 @@ body > footer {
     width: 100%;
     height: 100%;
     opacity: 0.9;
-    background: $colorDark;
+    background: var(--dark);
     font-size: 0.8em;
   }
 
@@ -299,7 +315,7 @@ body > footer {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: $colorAccent;
+  color: var(--accent);
 
   &:hover,
   &:visited {
@@ -308,7 +324,7 @@ a {
 
   &.button {
     display: inline-block;
-    background: $colorAccent;
+    background: var(--accent);
     color: #fff;
     font-weight: 700;
     font-size: 12px;
@@ -388,7 +404,7 @@ ul.postlist {
       order: 2;
       font-size: 1.4em;
       font-weight: 700;
-      border-top: solid 4px $colorAccent;
+      border-top: solid 4px var(--accent);
 
       a {
         display: block;
@@ -398,7 +414,7 @@ ul.postlist {
 
         &:hover {
           text-decoration: none;
-          color: $colorAccent;
+          color: var(--accent);
         }
       }
     }
@@ -428,14 +444,14 @@ em {
 
 sup {
   vertical-align: super;
-  font-size: .66em;
-  line-height: .66em;
+  font-size: 0.66em;
+  line-height: 0.66em;
 }
 
 sub {
   vertical-align: sub;
-  font-size: .66em;
-  line-height: .66em;
+  font-size: 0.66em;
+  line-height: 0.66em;
 }
 
 blockquote {
@@ -454,7 +470,7 @@ blockquote {
     content: " ";
     display: block;
     margin: 0 auto 25px;
-    background: $colorAccent;
+    background: var(--accent);
     width: 60px;
     height: 3px;
   }
@@ -479,7 +495,7 @@ blockquote {
 // ******
 
 main > section:not(#hero) {
-  background: $colorLight;
+  background: var(--light);
   position: relative;
   overflow: hidden;
 
@@ -513,7 +529,7 @@ main > section:not(#hero) {
       margin-top: 20px;
       width: 80px;
       height: 3px;
-      background: $colorAccent;
+      background: var(--accent);
     }
   }
 
@@ -521,7 +537,7 @@ main > section:not(#hero) {
     max-width: 1140px;
     margin: 0 auto;
     padding: 20px;
-    color: $colorText;
+    color: var(--text);
   }
 }
 
@@ -627,7 +643,7 @@ main > section#error {
   }
 
   p {
-    color: $colorLight;
+    color: var(--light);
   }
 }
 
@@ -647,7 +663,7 @@ main > section#aalmoezeniers {
   }
 
   iframe {
-    background: $colorLightAlt;
+    background: var(--alt);
     display: block;
     margin: 25px auto;
     padding: 0;
@@ -700,7 +716,7 @@ main > section#aalmoezeniers {
         width: 100%;
         height: 200px;
         object-fit: cover;
-        border-bottom: solid 4px $colorAccent;
+        border-bottom: solid 4px var(--accent);
         transition: transform 4s ease-out;
       }
 
@@ -722,7 +738,7 @@ main > section#aalmoezeniers {
 
 main > section#eyecatcher {
   padding: 80px 0;
-  border-bottom: solid 3px $colorAccent;
+  border-bottom: solid 3px var(--accent);
 
   h2:before {
     content: "Blikvanger";
@@ -730,7 +746,7 @@ main > section#eyecatcher {
 }
 
 main > section#activiteiten {
-  background: $colorLightAlt;
+  background: var(--alt);
   padding: 50px 0;
   overflow: unset;
 
@@ -749,7 +765,7 @@ main > section#activiteiten {
     position: sticky;
     top: 0;
     z-index: 5;
-    background: $colorLightAlt;
+    background: var(--alt);
   }
 
   div {
@@ -780,12 +796,12 @@ main > section#activiteiten {
       padding: 3px 7px 3px 35px;
       width: 100%;
       max-width: 260px;
-      border: solid 2px $colorDark;
+      border: solid 2px var(--dark);
       background: url(../../img/icn_search.svg) 10px center no-repeat transparent;
       background-size: 20px;
       border-radius: 50px;
       font: inherit;
-      color: $colorText;
+      color: var(--text);
       transition: border-color 0.5s ease-out, background-color 0.5s ease-out;
 
       @media screen and (max-width: 700px) {
@@ -795,7 +811,7 @@ main > section#activiteiten {
       &:focus,
       &:hover {
         background-color: #fff;
-        border-color: $colorAccent;
+        border-color: var(--accent);
       }
     }
   }
@@ -842,8 +858,8 @@ main > section#activiteiten {
 }
 
 main > section#schenken {
-  background: $colorDark;
-  color: $colorLight;
+  background: var(--dark);
+  color: var(--light);
   padding: 80px 0;
 
   h2:before {
@@ -855,7 +871,7 @@ main > section#schenken {
   }
 
   p {
-    color: $colorLight;
+    color: var(--light);
   }
 
   > div {
@@ -922,7 +938,7 @@ main > section#post {
     position: relative;
     margin: 0 0 50px;
     padding: 150px 0 70px;
-    color: $colorLight;
+    color: var(--light);
     overflow: hidden;
 
     @media screen and (max-width: 680px) {
@@ -975,7 +991,7 @@ main > section#post {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px 20px 60px;
-    color: $colorText;
+    color: var(--text);
     list-style-type: circle;
   }
 
@@ -984,7 +1000,7 @@ main > section#post {
   }
 
   figure {
-    background: $colorLightAlt;
+    background: var(--alt);
     display: block;
     max-width: 900px;
     margin: 15px auto;
@@ -993,7 +1009,7 @@ main > section#post {
     figcaption {
       display: block;
       padding: 10px 0 0;
-      color: $colorDark;
+      color: var(--dark);
     }
 
     img {
@@ -1003,7 +1019,7 @@ main > section#post {
 
   p {
     &.gallery {
-      background: $colorLightAlt;
+      background: var(--alt);
       display: flex;
       flex-wrap: wrap;
       margin: 15px auto;
@@ -1084,7 +1100,7 @@ main > section#post {
 }
 
 main > section#relevant {
-  background-color: $colorLightAlt;
+  background-color: var(--alt);
 
   h3 {
     max-width: 1240px;
