@@ -1,5 +1,5 @@
 name: Matumaini Theme
-version: 2.0.1
+version: 2.0.2
 description: "Matumaini is a custom Grav theme for the Belgian NPO Matumaini Katanga"
 keywords: grav, theme, matumaini, katanga, vzw, npo, meldert, congo
 icon: user-circle
@@ -7,7 +7,7 @@ author:
   name: Kristof Dewilde
   email: matumaini@krivi.be
   url: https://kristofdewil.de
-homepage: https://github.com/Qrivi/matumaini-grav
-bugs: https://github.com/Qrivi/matumaini-grav/issues
+homepage: https://github.com/Qrivi/matumaini.be
+bugs: https://github.com/Qrivi/matumaini.be/issues
 demo: http://www.matumaini.be
 license: MIT

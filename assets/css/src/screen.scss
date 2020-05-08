@@ -1,6 +1,8 @@
-@charset 'UTF-8';
-@import url("reset.css");
+@charset "UTF-8";
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Oswald:700|Homemade+Apple&display=swap");
+
+@import "reset";
 
 $colorAccent: rgb(200, 20, 0);
 $colorLight: #f6f6f6;
@@ -87,7 +89,7 @@ body > header {
 
     ul li {
       &:first-of-type a {
-        background-image: url(../img/logo.png);
+        background-image: url(../../img/logo.png);
       }
 
       &:last-of-type a {
@@ -128,7 +130,7 @@ body > header {
         display: block;
 
         a {
-          background: transparent url(../img/logo_i.png) no-repeat center left;
+          background: transparent url(../../img/logo_i.png) no-repeat center left;
           width: 40px;
           background-size: 30px;
           color: transparent;
@@ -230,14 +232,14 @@ body > footer {
       left: -25px;
       display: block;
       content: " ";
-      background: transparent url(../img/icn_email.svg) no-repeat left top;
+      background: transparent url(../../img/icn_email.svg) no-repeat left top;
       background-size: 15px;
       width: 20px;
       height: 20px;
     }
 
     &.address:before {
-      background-image: url(../img/icn_address.svg);
+      background-image: url(../../img/icn_address.svg);
       background-size: 17px;
       top: 1px;
     }
@@ -258,7 +260,7 @@ body > footer {
     }
 
     h2 {
-      background: transparent url(../img/logo_i.png) no-repeat center left;
+      background: transparent url(../../img/logo_i.png) no-repeat center left;
       background-size: 32px;
       font: 700 1.4em $fontBlock;
       padding: 10px 45px;
@@ -779,7 +781,7 @@ main > section#activiteiten {
       width: 100%;
       max-width: 260px;
       border: solid 2px $colorDark;
-      background: url(../img/icn_search.svg) 10px center no-repeat transparent;
+      background: url(../../img/icn_search.svg) 10px center no-repeat transparent;
       background-size: 20px;
       border-radius: 50px;
       font: inherit;
@@ -1074,7 +1076,7 @@ main > section#post {
         display: block;
         width: 100%;
         height: 100%;
-        background: url(../img/icn_arrow.svg) no-repeat center center;
+        background: url(../../img/icn_arrow.svg) no-repeat center center;
         background-size: 44px;
       }
     }
@@ -1219,7 +1221,7 @@ main > section#about {
           left: -25px;
           display: block;
           content: " ";
-          background: transparent url(../img/icn_file.svg) no-repeat left top;
+          background: transparent url(../../img/icn_file.svg) no-repeat left top;
           background-size: 15px;
           width: 20px;
           height: 20px;

@@ -1,0 +1,17 @@
+{
+  "name": "asset-bundler",
+  "private": true,
+  "scripts": {
+    "watch": "run-p watch:js watch:css",
+    "watch:js": "rm -rf ./js/dist && parcel watch ./js/src/* -d ./js/dist",
+    "watch:css": "rm -rf ./css/dist && parcel watch ./css/src/* -d ./css/dist",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "rm -rf ./js/dist && parcel build ./js/src/* -d ./js/dist",
+    "build:css": "rm -rf ./css/dist && parcel build ./css/src/* -d ./css/dist"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.5"
+  }
+}
